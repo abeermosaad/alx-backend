@@ -57,6 +57,7 @@ class Server:
             'index': index,
             'data': li,
             'page_size': page_size,
-            'next_index': index + page_size + idx,
+            'next_index': index + page_size + idx
+            if index + page_size + idx < len(self.__indexed_dataset) else None,
         })
         return dic
