@@ -14,6 +14,7 @@ class LRUCache (BaseCaching):
         super().__init__()
 
     def move_to_end(self, key):
+        """move_to_end func"""
         if key in self.cache_data:
             value = self.cache_data.pop(key)
             self.cache_data[key] = value
