@@ -22,13 +22,13 @@ class LRUCache (BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
+        if key and item:
+            self.cache_data[key] = item
+            self.move_to_end(key)
 
-        self.cache_data[key] = item
-        self.move_to_end(key)
-
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            print(f'DISCARD: {list(self.cache_data.keys())[0]}')
-            del self.cache_data[list(self.cache_data.keys())[0]]
+            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+                print(f'DISCARD: {list(self.cache_data.keys())[0]}')
+                del self.cache_data[list(self.cache_data.keys())[0]]
 
     def get(self, key):
         """ Get an item by key
