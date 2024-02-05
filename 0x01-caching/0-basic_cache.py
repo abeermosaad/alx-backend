@@ -6,6 +6,9 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache (BaseCaching):
+    """ BasicCache class that inherits from BaseCaching and is a caching system
+    """
+
     def __init__(self):
         """ Constructor of the class"""
         super().__init__()
@@ -13,6 +16,7 @@ class BasicCache (BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
+
         if key and item:
             self.cache_data[key] = item
 
